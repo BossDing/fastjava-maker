@@ -1211,10 +1211,10 @@ public class MapperHelper {
 
 					// 解析各个几点
 					// resultMap id是BO的节点
-					if("resultMap".equals(itemNode.getNodeName()) && ((DeferredElementImpl) itemNode).getAttribute("id").endsWith("BO")) {
+					if("resultMap".equals(itemNode.getNodeName()) && itemNode.getAttributes().getNamedItem("id").getNodeValue().endsWith("BO")) {
 
 						// 过滤已添加项
-						NodeList results = ((DeferredElementImpl) itemNode).getElementsByTagName("result");
+						NodeList results = itemNode.getChildNodes();
 						boolean isAdd = false;
 						for(int j=0; j<results.getLength(); j++){
 							if(thisColumnDbName.equals(results.item(j).getAttributes().getNamedItem("column").getNodeValue())) {
@@ -1232,8 +1232,7 @@ public class MapperHelper {
 						newResultNode.setAttribute("property", thisColumnJavaName);
 
 						// 子节点个数(id+result)
-						int realItemSum = ((DeferredElementImpl) itemNode).getElementsByTagName("id").getLength() +
-								results.getLength();
+						int realItemSum = results.getLength();
 
 						// 结尾插入
 						if(columnIdx >= realItemSum) {
