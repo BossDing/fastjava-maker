@@ -5,7 +5,6 @@ import com.fastjavaframework.maker.support.util.Db;
 import com.fastjavaframework.util.FileUtil;
 import com.fastjavaframework.util.StringUtil;
 import com.fastjavaframework.util.VerifyUtils;
-import com.sun.org.apache.xerces.internal.dom.DeferredElementImpl;
 import org.springframework.context.ApplicationContext;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
